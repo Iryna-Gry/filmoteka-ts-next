@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer base {
+  main {
+    @apply py-5;
+    @apply md:py-10;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  /* ... */
+}
+@layer components {
+  .container {
+    @apply px-5 my-0 mx-auto;
+    @apply sm:max-w-md;
+    @apply md:max-w-screen-md md:py-0 md:px-8;
+    @apply lg:max-w-screen-lg;
+  }
+  .is-hiddden {
+    @apply opacity-0 pointer-events-none invisible;
+  }
+  .visually-hidden {
+    @apply absolute whitespace-nowrap w-0 h-0 overflow-hidden border-0 p-0 m-0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+  }
+  /* ... */
+}
